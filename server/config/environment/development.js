@@ -9,7 +9,7 @@ module.exports = {
   sequelize: {
     uri: 'sqlite://',
     options: {
-      logging: false,
+      logging: console.log,
       storage: 'dev.sqlite',
       define: {
         timestamps: false
@@ -18,6 +18,10 @@ module.exports = {
   },
 
   // Seed database on startup
-  seedDB: true
+  seedDB: false,
+
+  googleMap: {
+    apiKey: 'AIzaSyAqMwQqrpPyQc-uviylu9dl2nzqJPrv_fk',
+  },
 
 };

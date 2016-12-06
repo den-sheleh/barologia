@@ -36,6 +36,10 @@ var all = {
     session: 'barologia-secret'
   },
 
+  googleMap: {
+    apiKey: process.env.GOOGLE_API_KEY || '',
+  },
+
   // MongoDB connection options
   mongo: {
     options: {

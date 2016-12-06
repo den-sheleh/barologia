@@ -10,5 +10,6 @@ module.exports = {
   SESSION_SECRET: 'barologia-secret',
 
   // Control debug level for modules using visionmedia/debug
-  DEBUG: ''
+  DEBUG: '',
+  GOOGLE_API_KEY: ''
 };

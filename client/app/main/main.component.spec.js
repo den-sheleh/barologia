@@ -31,6 +31,6 @@ describe('Component: MainComponent', function() {
   it('should attach a list of things to the controller', function() {
     mainComponent.$onInit();
     $httpBackend.flush();
-    mainComponent.awesomeThings.length.should.equal(4);
+    mainComponent.bars.length.should.equal(4);
   });
 });

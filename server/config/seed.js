@@ -5,12 +5,12 @@
 
 'use strict';
 import sqldb from '../sqldb';
-var Thing = sqldb.Thing;
+var Bar = sqldb.Bar;
 
-Thing.sync()
-  .then(() => Thing.destroy({ where: {} }))
+Bar.sync()
+  .then(() => Bar.destroy({ where: {} }))
   .then(() => {
-    Thing.bulkCreate([{
+    Bar.bulkCreate([{
       name: 'Development Tools',
       info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '
             + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, '
