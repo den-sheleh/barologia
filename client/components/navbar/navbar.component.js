@@ -8,8 +8,7 @@ export class NavbarComponent {
     title: 'Home',
     state: 'main'
   }];
-  isCollapsed = true;
-
+  isCollapsed = false;
 }
 
 export default angular.module('directives.navbar', [])

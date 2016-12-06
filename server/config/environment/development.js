@@ -20,8 +20,4 @@ module.exports = {
   // Seed database on startup
   seedDB: false,
 
-  googleMap: {
-    apiKey: 'AIzaSyAqMwQqrpPyQc-uviylu9dl2nzqJPrv_fk',
-  },
-
 };
