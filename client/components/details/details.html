@@ -2,3 +2,7 @@
   <div>{{detailsCtrl.bar.name}}</div>
   <div>{{detailsCtrl.bar.formattedAddress}}</div>
 </div>
+
+<div ng-repeat="photo in detailsCtrl.photosCollection track by $id(photo.photo_reference)">
+  <google-photo reference="photo.photo_reference"></google-photo>
+</div>
