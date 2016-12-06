@@ -2,7 +2,6 @@
 
 import config from '../../config/environment';
 import GoogleLocation from 'node-googleplaces';
-require('module')
 
 const geoPoint = [50.061769, 19.937247];
 const radius = 2500;
