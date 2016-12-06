@@ -3,9 +3,9 @@
 export default function routes($stateProvider) {
   'ngInject';
 
-  $stateProvider.state('main', {
+  $stateProvider.state('index', {
     url: '/',
-    component: 'main',
+    component: 'barList',
     resolve: {
       bars: BarService => BarService.getAll(),
     },

@@ -14,9 +14,9 @@ import {
 
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
+import barList from '../components/bar-list/bar-list.component';
 import details from '../components/details/details.component';
 import googlePhoto from '../components/google-photo/google-photo.component';
-import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import BarService from '../services/bar.service';
@@ -25,7 +25,7 @@ import './app.scss';
 
 angular.module('barologiaApp',
   [ngCookies, ngResource, ngSanitize, uiRouter, navbar, footer,
-    details, main, constants, util, BarService, googlePhoto]
+    details, barList, constants, util, BarService, googlePhoto]
 )
 .config(routeConfig);
 
