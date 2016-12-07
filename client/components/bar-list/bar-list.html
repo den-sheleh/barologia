@@ -1,5 +1,5 @@
 <section>
-  <ul class="list" ng-repeat="bar in barListCtrl.bars">
+  <ul class="list" ng-repeat="bar in barListCtrl.bars | orderBy: 'name'">
     <li class="list__item">
       <div class="card">
         <a class="card__title" ui-sref="details({ barId: bar._id })">{{bar.name}}</a>
