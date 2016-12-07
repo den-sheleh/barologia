@@ -7,6 +7,7 @@
 // Component styles are injected through gulp
 /* inject:scss */
 @import 'main';
+@import 'media-query';
 @import '../components/bar-list/bar-list';
 @import '../components/details/details';
 @import '../components/footer/footer';

@@ -37,8 +37,7 @@ const paths = {
         styleVars: `${clientPath}/app/variables.scss`,
         views: `${clientPath}/{app,components}/**/*.html`,
         mainView: `${clientPath}/index.html`,
-        test: [`${clientPath}/{app,components}/**/*.{spec,mock}.js`],
-        e2e: ['e2e/**/*.spec.js']
+        test: [`${clientPath}/{app,components}/**/*.{spec,mock}.js`]
     },
     server: {
         scripts: [
@@ -246,13 +245,6 @@ gulp.task('webpack:test', function() {
         .pipe(gulp.dest('.tmp'));
 });
 
-gulp.task('webpack:e2e', function() {
-    const webpackE2eConfig = makeWebpackConfig({ E2E: true });
-    return gulp.src(webpackE2eConfig.entry.app)
-        .pipe(webpack(webpackE2eConfig))
-        .pipe(gulp.dest('.tmp'));
-});
-
 gulp.task('styles', () => {
     return gulp.src(paths.client.mainStyle)
         .pipe(styles())
@@ -446,15 +438,6 @@ gulp.task('coverage:integration', () => {
 
 // Downloads the selenium webdriver
 gulp.task('webdriver_update', webdriver_update);
-
-gulp.task('test:e2e', ['webpack:e2e', 'env:all', 'env:test', 'start:server', 'webdriver_update'], cb => {
-    gulp.src(paths.client.e2e)
-        .pipe(protractor({
-            configFile: 'protractor.conf.js',
-        }))
-        .on('error', e => { throw e })
-        .on('end', () => { process.exit() });
-});
 
 gulp.task('test:client', done => {
     new KarmaServer({

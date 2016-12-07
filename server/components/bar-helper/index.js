@@ -31,7 +31,8 @@ export default class BarHelper {
           });
         })
         .then(() => Bar.bulkCreate(barAttributes))
-        .then(() => barAttributes);
+        .then(() => barAttributes)
+        .catch(error => console.error(error));
       }
 
       return result;
@@ -57,7 +58,8 @@ export default class BarHelper {
 
           return;
         })
-        .then(() => barDetailsAttributes);
+        .then(() => barDetailsAttributes)
+        .catch(error => console.error(error));
       }
 
       return result;
@@ -80,13 +82,13 @@ export default class BarHelper {
     return {
       _id: entity.place_id,
       name: entity.name || 'Unknown',
-      latitude: entity.geometry.location.lat,
-      longitude: entity.geometry.location.lng,
+      latitude: entity.geometry ? entity.geometry.location.lat : 50.061769,
+      longitude: entity.geometry ? entity.geometry.location.lng : 19.937247,
       formattedAddress: entity.formatted_address,
       phoneNumber: entity.international_phone_number,
       website: entity.website,
       rating: entity.rating,
-      openingHours: entity.opening_hours.weekday_text,
+      openingHours: entity.opening_hours ? entity.opening_hours.weekday_text : [],
       photos: entity.photos,
       googleUrl: entity.url,
       updatedAt: moment.utc(),

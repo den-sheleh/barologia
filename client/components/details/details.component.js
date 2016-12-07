@@ -7,6 +7,11 @@ import routing from './details.routes';
 export class DetailsController {
   constructor() {
     this.photosCollection = angular.fromJson(this.bar.photos);
+    this.schedule = angular.fromJson(this.bar.openingHours);
+  }
+
+  isActiveStar(rating, i) {
+    return Math.round(rating) >= i;
   }
 }
 

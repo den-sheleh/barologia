@@ -1,0 +1,26 @@
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .gallery__preview {
+    max-height: 250px;
+  }
+
+  .flex-row {
+    flex-direction: column;
+  }
+
+  .flex-row__item {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .flex-row__item--1 {
+    order: 2;
+  }
+
+  .flex-row__item--2 {
+    order: 1;
+  }
+}

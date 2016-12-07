@@ -23,8 +23,8 @@ import BarService from '../services/bar.service';
 import './app.scss';
 
 angular.module('barologiaApp',
-  [ngCookies, ngResource, ngSanitize, uiRouter, footer,
-    details, barList, constants, util, BarService, googlePhoto]
+  [ngCookies, ngResource, ngSanitize, uiRouter,
+    details, barList, googlePhoto, footer, BarService, constants, util]
 )
 .config(routeConfig);
 
