@@ -9,7 +9,7 @@ module.exports = {
   sequelize: {
     uri: 'sqlite://',
     options: {
-      logging: console.log,
+      logging: false,
       storage: 'dev.sqlite',
       define: {
         timestamps: false
