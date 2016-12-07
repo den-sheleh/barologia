@@ -49,9 +49,9 @@ module.exports = function makeWebpackConfig(options) {
 
                 'angular-sanitize',
 
-
                 'angular-ui-router',
-                'lodash'
+                'lodash',
+                'photoswipe'
             ]
         };
     }
@@ -194,12 +194,19 @@ module.exports = function makeWebpackConfig(options) {
             test: /\.(scss|sass)$/,
             loaders: ['style', 'css', 'sass'],
             include: [
-                path.resolve(__dirname, 'node_modules/bootstrap-sass/assets/stylesheets/*.scss'),
                 path.resolve(__dirname, 'client/app/app.scss')
             ]
 
 
-        }]
+        },
+        {
+          test: /\.min\.js$/,
+          loader: 'script-loader',
+          include: [
+              path.resolve(__dirname, 'node_modules/photoswipe/dist/'),
+          ]
+        }
+      ]
     };
 
     config.module.postLoaders = [{
@@ -270,6 +277,10 @@ module.exports = function makeWebpackConfig(options) {
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
         }));
+
+        config.plugins.push(new webpack.ProvidePlugin({
+          PhotoSwipe: "photoswipe",
+        }))
     }
 
     // Skip rendering index.html in test mode

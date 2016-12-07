@@ -1,8 +1,7 @@
 <div class="flex-row">
   <div class="gallery flex-row__item flex-row__item--1">
-    <div class="gallery__preview"><img src="http://placekitten.com/g/700/900"></div>
     <div class="gallery__list">
-      <div class="gallery__thumb" ng-repeat="photo in detailsCtrl.photosCollection track by $id(photo.photo_reference)">
+      <div ng-click="detailsCtrl.showGallery($index)" ng-class="$index === 0 ? 'gallery__preview' : 'gallery__thumb'" ng-repeat="photo in detailsCtrl.photosCollection track by $id(photo.photo_reference)">
         <google-photo reference="photo.photo_reference"></google-photo>
       </div>
     </div>
@@ -20,3 +19,6 @@
     </div>
   </div>
 </div>
+
+<div ng-photoswipe slides="detailsCtrl.slides" open="detailsCtrl.galleryOpen" slide-selector=".gallery__list__image"
+            on-close="detailsCtrl.closeGallery()" options="detailsCtrl.opts"></div>

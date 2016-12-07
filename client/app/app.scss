@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
+@import '../../node_modules/photoswipe/dist/photoswipe.css';
+@import '../../node_modules/photoswipe/dist/default-skin/default-skin.css';
+
 /* inject:head:scss */
 @import 'variables';
 /* endinject */

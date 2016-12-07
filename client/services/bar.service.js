@@ -18,6 +18,6 @@ export class BarService {
   }
 }
 
-export default angular.module('barologia.services', [])
+export default angular.module('barologia.barservice', [])
   .service('BarService', BarService)
   .name;

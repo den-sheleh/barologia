@@ -5,8 +5,11 @@ import angular from 'angular';
 import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
-
 import uiRouter from 'angular-ui-router';
+
+require('photoswipe/dist/photoswipe.min');
+require('photoswipe/dist/photoswipe-ui-default.min');
+require('ng-photoswipe');
 
 import {
   routeConfig
@@ -19,12 +22,13 @@ import googlePhoto from '../components/google-photo/google-photo.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import BarService from '../services/bar.service';
+import PhotoService from '../services/photo.service';
 
 import './app.scss';
 
 angular.module('barologiaApp',
-  [ngCookies, ngResource, ngSanitize, uiRouter,
-    details, barList, googlePhoto, footer, BarService, constants, util]
+  [ngCookies, ngResource, ngSanitize, uiRouter, 'ngPhotoswipe',
+    details, barList, googlePhoto, footer, BarService, PhotoService, constants, util]
 )
 .config(routeConfig);
 
