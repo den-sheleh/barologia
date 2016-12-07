@@ -1,5 +1,7 @@
 'use strict';
 
+const _ = require('lodash');
+
 export function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -12,7 +14,7 @@ export function respondWithResult(res, statusCode) {
 
 export function handleEntityNotFound(res) {
   return function(entity) {
-    if(!entity) {
+    if(!entity || _.isEmpty(entity)) {
       res.status(404).end();
       return null;
     }

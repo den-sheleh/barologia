@@ -9,6 +9,7 @@
 
 // Component styles are injected through gulp
 /* inject:scss */
+@import '404';
 @import 'main';
 @import 'media-query';
 @import '../components/bar-list/bar-list';

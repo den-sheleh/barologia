@@ -33,9 +33,17 @@ angular.module('barologiaApp',
 )
 .config(routeConfig);
 
-angular.element(document)
-  .ready(() => {
-    angular.bootstrap(document, ['barologiaApp'], {
-      strictDi: true
+angular.element(document).ready(() => {
+  const injector = angular.bootstrap(document, ['barologiaApp'], { strictDi: true });
+  injector.invoke(function($trace, $transitions) {
+    'ngInject';
+
+    $trace.enable('TRANSITION');
+
+    $transitions.onError({}, function(trans) {
+      if(trans._error.status === 404) {
+        trans.router.stateService.go('notFound');
+      }
     });
   });
+});
