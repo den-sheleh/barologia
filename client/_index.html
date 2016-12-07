@@ -24,8 +24,17 @@
       ga('send', 'pageview');
     </script> -->
 
-    <navbar></navbar>
-    <div ui-view></div>
+    <header class="hero-unit">
+      <div class="container">
+        <h1>Aloha, bro!</h1>
+        <div class="lead">
+          <a ui-sref="index">Explore Cracow bars below!</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container" ui-view></div>
+    </main>
     <footer></footer>
 </body>
 </html>

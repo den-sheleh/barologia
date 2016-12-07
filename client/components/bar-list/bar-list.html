@@ -1,17 +1,14 @@
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>Aloha, bro!</h1>
-    <p class="lead">Explore Cracow bars below!</p>
-  </div>
-</header>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Bars:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="bar in barListCtrl.bars">
-        <li><a ui-sref="details({ barId: bar._id })">{{bar.name}}</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<section>
+  <ul class="list" ng-repeat="bar in barListCtrl.bars">
+    <li class="list__item">
+      <div class="card">
+        <a class="card__title" ui-sref="details({ barId: bar._id })">{{bar.name}}</a>
+        <p class="card__address">{{bar.formattedAddress}}</p>
+        <p class="card__rating-text">Rating: {{bar.rating}}</p>
+        <div data-rating-role="container" data-rating-class-base="rating" data-rating-class-active="__item_active" class="card__rating rating">
+          <div data-rating-role="trigger" data-rating-value="{{i}}" class="rating__item" ng-class="{'rating__item_active' : barListCtrl.isActiveStar(bar.rating, i)}" ng-repeat="i in [1,2,3,4,5]"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

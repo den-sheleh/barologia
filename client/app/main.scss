@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  font-family: 'Lato', sans-serif;
+  background-color: $white-color;
+  color: #333;
+}
+
+.container {
+  max-width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: $dark-white-color;
+  color: $black-color;
+  padding: 0.2em 0;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 30px 15px;
+  color: $dark-white-color;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: $primary-color;
+  border-bottom: none;
+  margin-top: -20px;
+}
+
+.hero-unit h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.hero-unit a:hover {
+  color: $grey-inactive-color;
+  text-decoration: none;
+}
+
+a {
+  color: $inactive-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primary-color;
+  text-decoration: none;
+}

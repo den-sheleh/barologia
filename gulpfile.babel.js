@@ -34,6 +34,7 @@ const paths = {
         ],
         styles: [`${clientPath}/{app,components}/**/*.scss`],
         mainStyle: `${clientPath}/app/app.scss`,
+        styleVars: `${clientPath}/app/variables.scss`,
         views: `${clientPath}/{app,components}/**/*.html`,
         mainView: `${clientPath}/index.html`,
         test: [`${clientPath}/{app,components}/**/*.{spec,mock}.js`],
@@ -193,20 +194,30 @@ gulp.task('inject', cb => {
 });
 
 gulp.task('inject:scss', () => {
-    return gulp.src(paths.client.mainStyle)
-        .pipe(plugins.inject(
-            gulp.src(_.union(paths.client.styles, ['!' + paths.client.mainStyle]), {read: false})
-                .pipe(plugins.sort()),
-            {
-                transform: (filepath) => {
-                    let newPath = filepath
-                        .replace(`/${clientPath}/app/`, '')
-                        .replace(`/${clientPath}/components/`, '../components/')
-                        .replace(/_(.*).scss/, (match, p1, offset, string) => p1)
-                        .replace('.scss', '');
-                    return `@import '${newPath}';`;
-                }
-            }))
+  return gulp.src(paths.client.mainStyle)
+    .pipe(plugins.inject(gulp.src(paths.client.styleVars, { read: false }), {
+      starttag: '/* inject:head:scss */',
+      transform: filepath => {
+        let newPath = filepath
+            .replace(`/${clientPath}/app/`, '')
+            .replace(`/${clientPath}/components/`, '../components/')
+            .replace('.scss', '');
+        return `@import '${newPath}';`;
+      }
+    }))
+    .pipe(plugins.inject(
+        gulp.src(_.union(paths.client.styles, [`!${paths.client.mainStyle}`, `!${paths.client.styleVars}`]), {read: false})
+            .pipe(plugins.sort()),
+        {
+            transform: (filepath) => {
+                let newPath = filepath
+                    .replace(`/${clientPath}/app/`, '')
+                    .replace(`/${clientPath}/components/`, '../components/')
+                    .replace(/_(.*).scss/, (match, p1, offset, string) => p1)
+                    .replace('.scss', '');
+                return `@import '${newPath}';`;
+            }
+        }))
         .pipe(gulp.dest(`${clientPath}/app`));
 });
 
